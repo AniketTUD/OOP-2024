@@ -41,9 +41,44 @@ public class LifeBoard {
 
     }
 
+    public void setCell(int row, int col, boolean value)
+    {
+        if(row > 0 && col > 0 && row < rows && col < cols)
+        {
+            board[row][col] = value;
+        }
+    }
+
+    public boolean getCell(int row, int col)
+    {
+        if(row > 0 && col > 0 && row < rows && col < cols)
+        {
+            return board[row][col];
+        }
+
+        return false;
+    }
+
     public void render()
     {
-        
+        for(int row = 0 ; row < rows ; row ++)
+        {
+            for(int col = 0 ; col < cols ; col ++)
+            {
+                float x = p.map(col, 0, cols, 0, p.width);
+                float y = row * cellHeight;
+                if(board[row][col])
+                {
+                    p.fill(0, 255, 0);
+                }
+                else
+                {
+                    p.noFill();
+                }              
+                
+                p.rect(x, y, cellWidth, cellHeight);
+            }
+        }
     }
 
 
