@@ -17,7 +17,7 @@ public class LifeBoard {
     {
         this.rows = rows;
         this.cols = cols;
-        this.p = p;
+        this.p = p; 
         board = new boolean[rows][cols];
         cellWidth = p.width / (float) cols;
         cellHeight = p.height / (float) rows;
@@ -25,15 +25,16 @@ public class LifeBoard {
 
     void randomize()
     {
-        for(int row = 0 ; row < rows ; row++)
+        for(int row = 0 ; row < rows ; row ++)
         {
-            for(int col = 0 ; col < cols ; col++)
+            for(int col = 0 ; col < cols ; col ++)
             {
                 float dice = p.random(1.0f);
-                board[row][col] = (dice < 0.5f);
+                board[row][col] = (dice < 0.5f);                
             }
         }
     }
+
 
     public void update()
     {
@@ -42,14 +43,9 @@ public class LifeBoard {
 
     public void render()
     {
-        for(int i = 0 ; i < rows ; i++)
-        {
-            for(int j = 0 ; j < cols ; j++)
-            {
-                p.rect(i, j, cellWidth, cellHeight);
-            }
-        }
+        
     }
+
 
 
 }
